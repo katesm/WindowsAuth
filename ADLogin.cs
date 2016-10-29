@@ -7,7 +7,7 @@ public class Startup
         public async Task<object> Invoke(object data)
         {
             var input = (IDictionary<string,object>) data;
-            return ADLogin.AuthenticateUser((string)input["username"], (string)input["password"]);
+            return ADLogin.AuthenticateUser((string)input["username"], (string)input["password"], (string)input["domain"]);
         }
     }
 
@@ -71,7 +71,7 @@ public class ADLogin
     }
 
 
-    public static bool AuthenticateUser(string username, string password, string domain = "facultystaff")
+    public static bool AuthenticateUser(string username, string password, string domain)
     {
         IntPtr token = IntPtr.Zero;
         //userName, domainName and Password parameters are very obvious.

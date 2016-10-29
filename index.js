@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 app.post(deployPath + '/auth', function (req, res) {
    
     console.log(req.body);
-    auth({username: req.body.username, password:req.body.password},function(err, result){
+    auth({username: req.body.username, password:req.body.password, domain:'your domain here'},function(err, result){
         console.log(err);
         console.log(result);
         if(err) res.send({success:false, message:'There was a problem'});
